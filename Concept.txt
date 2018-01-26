@@ -1,0 +1,15 @@
+Stock Market Game
+
+Basic concept
+	20 different companies in the exchange
+	Starting prices (roll a d100 to determine starting GP cost of a single stock)
+	Roll a d100 each day to determine market changes (low end of the d100 is bad stuff, high end is great stuff, most of the inbetween is very small % increase or decrease in value).
+	Script will run the daily change function for each listing in the exchange, and then output the + or - % change in stock in a ticker like fashion. 
+	Have a number of days past variable so the script can loop through several times in one run. (If the players wait a few weeks the script runs $DAYS amount of times and then outputs the final prices.)
+	Players can cash out whenever they want. Make there be a % of GP cash out price to keep them from just going nuts. (Perhaps helping the guild can remove this fee?)
+	Have a function to manually adjust prices (This is just the adjust price function but a script that just runs this and takes the input you give it.)
+	Have a function to manually adjust prices by a %.
+	Have a function that prints current prices.
+
+
+
