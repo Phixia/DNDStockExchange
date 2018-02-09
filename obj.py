@@ -67,6 +67,7 @@ class Listing(object):
 			ResourceUpdate(3, toolUse)
 			ResourceUpdate(2, materialUse)
 			Product(self.ListingID, final_product)
+			VolumeChange(self.ListingID)
 			return
 		elif self.IndustryID == 2:
 			MaterialProduced = MaterialProduce()
@@ -77,6 +78,8 @@ class Listing(object):
 			ResourceUpdate(3, toolUse)
 			ResourceUpdate(2, MaterialProduced)
 			Product(self.ListingID, final_product)
+			VolumeChange(self.ListingID)
+
 			return
 		elif self.IndustryID == 3:
 			foodUse = FoodUse()
@@ -87,6 +90,7 @@ class Listing(object):
 			ResourceUpdate(2, materialUse)
 			ResourceUpdate(3, toolProduced)
 			Product(self.ListingID, final_product)
+			VolumeChange(self.ListingID)
 			return
 		elif self.IndustryID == 4:
 			foodUse = FoodUse()
@@ -99,6 +103,7 @@ class Listing(object):
 			ResourceUpdate(4, reagentProduced)
 			ResourceUpdate(5, magicUse)
 			Product(self.ListingID, final_product)
+			VolumeChange(self.ListingID)
 			return
 		elif self.IndustryID == 5:
 			materialUse = MaterialUse()
@@ -119,6 +124,7 @@ class Listing(object):
 			ResourceUpdate(4, reagentUse)
 			ResourceUpdate(5, magicProduced)
 			Product(self.ListingID, final_product)
+			VolumeChange(self.ListingID)
 			return
 		elif self.IndustryID == 6:
 			contractProduce = ContractProduce()
@@ -126,10 +132,12 @@ class Listing(object):
 			contractUpdate = contractProduce + contractFill
 			ResourceUpdate(6, contractUpdate)
 			Listing(10).ContractChange()
+			VolumeChange(self.ListingID)
 			return
 		elif self.IndustryID == 7:
 			invest = D5()
 			InvestUpdate(self.ListingID, invest)
+			VolumeChange(self.ListingID)
 			return
 
 		else:
@@ -247,25 +255,6 @@ class Listing(object):
 		return
 
 
-# test looping on all listings run 100 times to try to get a better idea of probabilty
-y = 1
-while y > 0:
-	y -= 1
-	dayStart()
-	for x in range(1,26):
-		Listing(x).dayTrade()
-		if Listing(x).IndustryID == 6:
-			continue
-		elif Listing(x).IndustryID == 7:
-			Listing(x).TradeChange()
-			continue
-		else:
-			Listing(x).ValueChange()
-	continue
-
-
-
-# Next I need to accept command line arguments for how many times to iterate the loop
 
 
 

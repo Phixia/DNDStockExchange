@@ -134,7 +134,13 @@ def ResourceUpdate(resource_id, resource_delta):
 	resource_count = ResourceCount(resource_id)
 	return
 
-
+def VolumeChange(listing_id):
+	volume = (D100(),)
+	conn = Conn()
+	cur = conn.cursor()
+	cur.execute('UPDATE Listings SET listing_volume =? WHERE listing_id =?', volume + listing_id)
+	conn.commit()
+	return
 
 
 def Product(listing_id, product_count):
