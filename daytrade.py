@@ -23,8 +23,3 @@ while y > 0:
 		else:
 			Listing(x).ValueChange()
 	continue
-
-for x in range (1,26):
-	print Listing(x)
-
-# Next I need to accept command line arguments for how many times to iterate the loop
